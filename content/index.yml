@@ -1,0 +1,195 @@
+seo:
+  title: Intraq — Reliable Data Solutions for Africa’s Leading Organizations
+  description: Intraq partners with enterprises, NGOs, and public institutions across Africa to deliver trusted data management solutions. From data entry and validation to analytics, our platform ensures accuracy, security, and actionable intelligence for every decision.
+
+title: Reliable Data Solutions for Africa’s Leading Organizations
+description: Intraq partners with enterprises, NGOs, and public institutions across Africa to deliver trusted data management solutions. From data entry and validation to analytics, our platform ensures accuracy, security, and actionable intelligence for every decision.
+  
+hero:
+  links:
+    - label: Get started
+      icon: i-lucide-arrow-right
+      trailing: true
+      color: primary
+      to: 'register'
+      size: xl
+
+section:
+  title: '[Transform]{.text-orange-600} your data experience'
+  description: Empower your business with smart data entry, management, and insight-driven solutions — built for accuracy, speed, and scalability across Africa.
+  images:
+    mobile: '/images/dashboard.jpg'
+    desktop: '/images/dashboard.jpg'
+  features:
+    - title: Ensure data accuracy and consistency
+      description: Minimize errors and improve reliability with our expert-led data entry processes and validation systems — because clean data drives confident decisions.
+      class: border-l border-primary pl-4
+
+    - title: Streamline information management
+      description: Centralize, organize, and manage your data through modern software solutions that simplify access, updates, and reporting for teams of all sizes.
+      class: border-l border-default pt-4 pl-4
+
+    - title: Unlock insights that fuel growth
+      description: Turn raw information into actionable insights with Intraq’s data visualization and analysis tools, helping you make faster, smarter business decisions.
+      class: border-l border-default pt-4 pl-4
+
+features:
+  title: Take control of your [data operations]{.text-primary}
+  description: Enhance accuracy, efficiency, and collaboration with intelligent tools designed to simplify every step of your data management process.
+  features:
+    - title: Smart Data Validation
+      description: Automatically detect and correct inconsistencies to keep your records clean, accurate, and reliable.
+      icon: i-lucide-check-circle
+      ui:
+        leading: bg-accented/50 p-2 rounded-md border border-muted border-dashed
+
+    - title: Workflow Monitoring
+      description: Track your team’s data entry progress and performance in real time to ensure efficiency and accountability.
+      icon: i-lucide-activity
+      ui:
+        leading: bg-accented/50 p-2 rounded-md border border-muted border-dashed
+
+    - title: Centralized Record Management
+      description: Store and access all your information in one secure system — making updates, retrieval, and analysis effortless.
+      icon: i-lucide-database
+      ui:
+        leading: bg-accented/50 p-2 rounded-md border border-muted border-dashed
+
+    - title: Accuracy Alerts
+      description: Get notified about anomalies or duplicated entries, keeping your business data trustworthy and consistent.
+      icon: i-lucide-bell-ring
+      ui:
+        leading: bg-accented/50 p-2 rounded-md border border-muted border-dashed
+
+    - title: Collaborative Dashboards
+      description: Empower teams to work together seamlessly with shared insights, permissions, and audit tracking.
+      icon: i-lucide-users
+      ui:
+        leading: bg-accented/50 p-2 rounded-md border border-muted border-dashed
+
+    - title: Insightful Reporting
+      description: Generate visual reports and analytics that help you understand trends, performance, and opportunities at a glance.
+      icon: i-lucide-bar-chart-3
+      ui:
+        leading: bg-accented/50 p-2 rounded-md border border-muted border-dashed
+
+steps:
+  title: Streamline your data operations in [3 steps]{.text-primary}
+  description: Simplify your data entry, management, and reporting with Intraq’s smart data solutions.
+  items:
+    - title: Connect Your Data Sources
+      description: Easily integrate spreadsheets, CRMs, or databases with Intraq. Import your existing data in minutes — no complex setup required.
+      image:
+        light: '/images/light/connect.svg'
+        dark: '/images/dark/connect.svg'
+
+    - title: Clean & Organize
+      description: Automatically detect duplicates, fix formatting errors, and standardize entries. Keep your datasets accurate, consistent, and ready for use.
+      image:
+        light: '/images/light/optimize.svg'
+        dark: '/images/dark/optimize.svg'
+
+    - title: Manage & Visualize
+      description: Generate instant reports and dashboards that reveal trends, accuracy rates, and productivity insights — all in one intuitive platform.
+      image:
+        light: '/images/light/track.svg'
+        dark: '/images/dark/track.svg'
+
+pricing:
+  title: Choose a plan for your needs
+  description: Intraq offers flexible data entry and management plans designed for teams, NGOs, and enterprises across Africa.
+
+  plans:
+    - name: Starter
+      price: "KES 15,000 / project"
+      description: Best for small one-off data entry or cleanup tasks.
+      features:
+        - Up to 5,000 records processed
+        - Basic formatting and validation
+        - 2-day turnaround
+        - Email support
+      cta: Get Started
+
+    - name: Professional
+      price: "KES 40,000 / month"
+      description: Ideal for SMEs needing ongoing data management.
+      features:
+        - Up to 20,000 records/month
+        - Data validation and error correction
+        - Basic reporting dashboard
+        - Priority email & WhatsApp support
+      highlight: true
+      cta: Subscribe
+
+    - name: Enterprise
+      price: "Custom Quote"
+      description: For organizations needing advanced automation and analytics.
+      features:
+        - Unlimited record processing
+        - Custom dashboards and API integrations
+        - Dedicated account manager
+        - SLA-backed turnaround times
+        - Optional on-site training
+      cta: Contact Sales
+
+model:
+  title: How Intraq Delivers Value
+  description: We combine software automation with expert human support to provide accurate, scalable, and cost-effective data management for organizations across Africa.
+  model:
+    - title: Subscription Plans
+      description: Ideal for businesses with recurring data entry or reporting needs. Clients pay a fixed monthly or quarterly fee depending on record volume and complexity.
+      icon: i-lucide-calendar
+
+    - title: Project-Based Pricing
+      description: For one-time cleanup, digitization, or migration projects. Pricing depends on the number of records, turnaround time, and required accuracy levels.
+      icon: i-lucide-briefcase
+
+    - title: Managed Service Retainers
+      description: Larger organizations can retain Intraq as a dedicated data operations partner — with assigned specialists, SLAs, and ongoing system improvements.
+      icon: i-lucide-handshake
+
+    - title: Software Licensing
+      description: Access Intraq’s proprietary data validation and reporting tools for internal use or integration into your systems.
+      icon: i-lucide-cpu
+
+    - title: Consulting & Training
+      description: We help your internal teams improve data accuracy, structure processes, and adopt the best tools for long-term efficiency.
+      icon: i-lucide-graduation-cap
+
+testimonials:
+  title: Trusted by [businesses and organizations]{.text-primary} across Africa
+  description: See how Intraq is helping companies and NGOs simplify data workflows, improve accuracy, and unlock insights from their information.
+  items:
+    - quote: “Intraq helped us clean and organize thousands of client records. Our reporting process is now faster and more accurate — saving us days each month.”
+      user:
+        name: "Grace Njeri"
+        description: "Operations Lead, Nairobi SME Hub"
+        avatar:
+          src: "https://ipx.nuxt.com/f_auto,s_192x192/gh_avatar/gracenz"
+
+    - quote: “We rely on Intraq to manage our program data across multiple regions. Their team combines great tech with human accuracy.”
+      user:
+        name: "Michael Ade"
+        description: "Program Officer, NGO West Africa"
+        avatar:
+          src: "https://ipx.nuxt.com/f_auto,s_192x192/gh_avatar/michaelade"
+
+    - quote: “Our internal data quality improved drastically. The dashboards Intraq built help us make decisions in minutes, not hours.”
+      user:
+        name: "Esther Muthoni"
+        description: "Data Manager, Fintech Kenya"
+        avatar:
+          src: "https://ipx.nuxt.com/f_auto,s_192x192/gh_avatar/esthermuthoni"
+
+cta:
+  title: Ready to take control of your business data?
+  description: Let Intraq simplify your data operations — from entry to insight. Partner with our specialists and transform how your organization manages information.
+  links:
+    - label: Start your project
+      to: '#contact'
+      trailingIcon: i-lucide-arrow-right
+      color: primary
+    - label: Contact sales
+      to: '#contact'
+      variant: subtle
+      icon: i-lucide-phone
