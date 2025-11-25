@@ -2,11 +2,11 @@
   "rewrites": [
     {
       "source": "/dashboard",
-      "destination": "https://your-dashboard-app.vercel.app"
+      "destination": "https://intraq-dashboard.vercel.app/"
     },
     {
       "source": "/dashboard/:path*",
-      "destination": "https://your-dashboard-app.vercel.app/:path*"
+      "destination": "https://intraq-dashboard.vercel.app/:path*"
     }
   ]
 }
