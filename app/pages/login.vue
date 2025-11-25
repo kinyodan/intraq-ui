@@ -1,26 +1,3 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-
-const { data: page } = await useAsyncData('index', () => queryCollection('content').first())
-if (!page.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
-}
-
-useSeoMeta({
-  title: page.value.seo?.title || page.value.title,
-  ogTitle: page.value.seo?.title || page.value.title,
-  description: page.value.seo?.description || page.value.description,
-  ogDescription: page.value.seo?.description || page.value.description
-})
-
-const email = ref('')
-const password = ref('')
-
-function login() {
-  console.log('Logging in:', email.value, password.value)
-}
-</script>
-
 <template>
   <UContainer class="min-h-screen flex items-center justify-center">
     <UCard
@@ -80,3 +57,94 @@ function login() {
     </UCard>
   </UContainer>
 </template>
+<script>
+export default {
+  name: 'LoginPage',
+  data() {
+    return {
+      email: '',
+      password: '',
+      loading: false
+    }
+  },
+  async asyncData({ $content }) {
+    try {
+      const page = await $content('content').fetch()
+      return {
+        page
+      }
+    } catch (error) {
+      throw { statusCode: 404, statusMessage: 'Page not found' }
+    }
+  },
+  head() {
+    return {
+      title: this.page?.seo?.title || this.page?.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.page?.seo?.description || this.page?.description
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.page?.seo?.title || this.page?.title
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.page?.seo?.description || this.page?.description
+        }
+      ]
+    }
+  },
+  methods: {
+    async login() {
+      console.log('Logging in:', { 
+        email: this.email, 
+        password: this.password 
+      })
+
+      this.loading = true
+
+      try {
+        const formData = new URLSearchParams()
+        formData.append('username', this.email)
+        formData.append('password', this.password)
+
+        const response = await fetch('http://localhost:8000/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: formData
+        })
+
+        if (response.ok) {
+          const result = await response.json()
+          console.log('Login successful:', result)
+          
+          // Store tokens
+          localStorage.setItem('access_token', result.access_token)
+          localStorage.setItem('refresh_token', result.refresh_token)
+          
+          this.$toast.success('Login successful!')
+          
+          // Redirect to dashboard
+          this.$router.push('/dashboard')
+        } else {
+          const error = await response.json()
+          console.error('Login failed:', error)
+          this.$toast.error(error.detail || 'Login failed!')
+        }
+      } catch (error) {
+        console.error('Login error:', error)
+        this.$toast.error('Network error during login!')
+      } finally {
+        this.loading = false
+      }
+    }
+  }
+}
+</script>

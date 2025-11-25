@@ -1,29 +1,3 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-
-const { data: page } = await useAsyncData('index', () => queryCollection('content').first())
-if (!page.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
-}
-
-useSeoMeta({
-  title: page.value.seo?.title || page.value.title,
-  ogTitle: page.value.seo?.title || page.value.title,
-  description: page.value.seo?.description || page.value.description,
-  ogDescription: page.value.seo?.description || page.value.description
-})
-
-const name = ref('')
-const email = ref('')
-const password = ref('')
-const confirmPassword = ref('')
-
-function signup() {
-  console.log('Signing up:', { name: name.value, email: email.value })
-  // TODO: Add your sign-up logic here
-}
-</script>
-
 <template>
   <UContainer class="min-h-screen flex items-center justify-center">
     <UCard
@@ -101,3 +75,104 @@ function signup() {
     </UCard>
   </UContainer>
 </template>
+<script>
+import apiService from "@/services/apiService"
+
+export default {
+  async asyncData({ $content, error }) {
+    try {
+      const page = await $content('content').first()
+      if (!page) {
+        throw new Error('Page not found')
+      }
+      return { page }
+    } catch (err) {
+      error({ statusCode: 404, statusMessage: 'Page not found' })
+    }
+  },
+  
+  data() {
+    return {
+      name: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
+    }
+  },
+  
+  head() {
+    return {
+      title: this.page?.seo?.title || this.page?.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.page?.seo?.description || this.page?.description
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.page?.seo?.title || this.page?.title
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.page?.seo?.description || this.page?.description
+        }
+      ]
+    }
+  },
+  
+  methods: {
+      async signup() {
+        console.log('Signing up:', { 
+          username: this.name, 
+          email: this.email
+        })
+
+        // Validation
+        if (this.password !== this.confirmPassword) {
+          alert("Passwords don't match!")
+          return
+        }
+
+        if (this.password.length < 6) {
+          alert("Password must be at least 6 characters long!")
+          return
+        }
+
+        try {
+          const formData = new FormData()
+          formData.append('username', this.name)
+          formData.append('email', this.email)
+          formData.append('password', this.password)
+
+          const response = await fetch('http://localhost:8000/signup', {
+            method: 'POST',
+            body: formData
+          })
+
+          if (response.ok) {
+            const result = await response.json()
+            console.log('Signup successful:', result)
+            //alert('Signup successful! You can now login.')
+            this.$router.push('/login')
+
+            // Redirect to login or clear form
+            this.name = ''
+            this.email = ''
+            this.password = ''
+            this.confirmPassword = ''
+          } else {
+            const error = await response.json()
+            console.error('Signup failed:', error)
+            alert(error.detail || 'Signup failed!')
+          }
+        } catch (error) {
+          console.error('Signup error:', error)
+          alert('Network error during signup!')
+        }
+    }
+  }
+}
+</script>

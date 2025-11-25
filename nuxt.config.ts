@@ -28,8 +28,10 @@ export default defineNuxtConfig({
       ]
     }
   },
-    devServer: {
+
+  devServer: {
     host: '0.0.0.0',
+    port: 3000, // Add specific port
     allowedHosts: ['a17aacae164b.ngrok-free.app']
   },
 
@@ -40,5 +42,10 @@ export default defineNuxtConfig({
         braceStyle: '1tbs'
       }
     }
+  },
+
+  // For Vercel deployment - root path
+  app: {
+    baseURL: '/'
   }
 })

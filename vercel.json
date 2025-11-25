@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/dashboard",
+      "destination": "https://your-dashboard-app.vercel.app"
+    },
+    {
+      "source": "/dashboard/:path*",
+      "destination": "https://your-dashboard-app.vercel.app/:path*"
+    }
+  ]
+}
