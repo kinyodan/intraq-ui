@@ -28,6 +28,10 @@ export default defineNuxtConfig({
       ]
     }
   },
+    devServer: {
+    host: '0.0.0.0',
+    allowedHosts: ['a17aacae164b.ngrok-free.app']
+  },
 
   eslint: {
     config: {
