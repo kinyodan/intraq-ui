@@ -1,4 +1,7 @@
-{
+{  
+  "version": 3,
+  "installCommand": "pnpm install --no-frozen-lockfile",
+  "buildCommand": "pnpm run build",
   "rewrites": [
     {
       "source": "/dashboard",
@@ -10,3 +13,4 @@
     }
   ]
 }
+
