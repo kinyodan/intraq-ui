@@ -1,11 +1,10 @@
-{  
-  "version": 3,
-  "installCommand": "pnpm install --no-frozen-lockfile",
+{
+  "installCommand": "pnpm install --no-frozen-lockfile", 
   "buildCommand": "pnpm run build",
   "rewrites": [
     {
       "source": "/dashboard",
-      "destination": "https://intraq-dashboard.vercel.app/"
+      "destination": "https://intraq-dashboard.vercel.app"
     },
     {
       "source": "/dashboard/:path*",
@@ -13,4 +12,3 @@
     }
   ]
 }
-
