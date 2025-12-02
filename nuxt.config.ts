@@ -1,11 +1,28 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  site: {
+    url: 'https://intraq.simokai.com',
+    name: 'Intraq',
+    description: 'Reliable Data Solutions for Africa\'s Leading Organizations'
+  },
   modules: [
     '@nuxt/eslint',
     '@nuxt/image',
     '@nuxt/ui',
     '@nuxt/content'
   ],
+
+  content: {
+    // Use filesystem driver instead of SQLite
+    driver: 'fs',
+    
+    // OR disable database completely
+    experimental: {
+      clientDB: false
+    },
+    
+    // Enable document-driven mode (reads files directly)
+    documentDriven: true
+  },
 
   devtools: {
     enabled: true
@@ -23,15 +40,13 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: [
-        '/'
-      ]
+      routes: ['/']
     }
   },
 
   devServer: {
     host: '0.0.0.0',
-    port: 3000, // Add specific port
+    port: 3000,
     allowedHosts: ['a17aacae164b.ngrok-free.app']
   },
 
@@ -44,7 +59,6 @@ export default defineNuxtConfig({
     }
   },
 
-  // For Vercel deployment - root path
   app: {
     baseURL: '/'
   }

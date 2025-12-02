@@ -41,11 +41,7 @@ nuxtApp.hooks.hookOnce('page:finish', () => {
         class="hidden lg:block"
       />
 
-      <UButton
-        label="Download App"
-        variant="subtle"
-        class="hidden lg:block"
-      />
+
 
       <UColorModeButton />
     </template>

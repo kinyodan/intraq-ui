@@ -10,5 +10,25 @@
       "source": "/dashboard/:path*",
       "destination": "https://intraq-dashboard.vercel.app/:path*"
     }
+  ],
+  "headers": [
+    {
+      "source": "/dashboard/_nuxt/:path*",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/javascript"
+        }
+      ]
+    },
+    {
+      "source": "/dashboard/assets/:path*",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/css"
+        }
+      ]
+    }
   ]
 }
