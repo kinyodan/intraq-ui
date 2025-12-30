@@ -19,6 +19,7 @@
               placeholder="m@example.com"
               class="w-full h-11"
               autocomplete="email"
+              @keyup.enter="login"
             />
           </UFormGroup>
 
@@ -29,20 +30,22 @@
               placeholder="••••••••"
               class="w-full h-11"
               autocomplete="current-password"
+              @keyup.enter="login"
             />
           </UFormGroup>
 
           <div class="space-y-3 pt-2">
-            <UButton 
-              block 
-              color="primary" 
-              class="h-11 text-base font-medium" 
+            <UButton
+              block
+              color="primary"
+              class="h-11 text-base font-medium"
               @click="login"
               :loading="loading"
               :disabled="loading"
             >
               Login
             </UButton>
+
             <UButton block variant="outline" class="h-11 text-base font-medium">
               Login with Google
             </UButton>
@@ -67,27 +70,24 @@
 </template>
 
 <script setup lang="ts">
-// Composition API - Fixed version
 import { ref } from 'vue'
-import { useRoute } from '#imports'
 
-// Initialize composables
 const toast = useToast()
-const route = useRoute()
 
 // Reactive state
 const email = ref('')
 const password = ref('')
 const loading = ref(false)
 
-// Login function
+// Login function - fully compatible with your unchanged backend /login endpoint
 const login = async () => {
-  if (!email.value || !password.value) {
+  if (!email.value.trim() || !password.value) {
     toast.add({
       title: 'Validation Error',
       description: 'Please enter both email and password',
       icon: 'i-heroicons-exclamation-triangle',
-      color: 'amber'
+      color: 'amber',
+      timeout: 4000
     })
     return
   }
@@ -95,73 +95,66 @@ const login = async () => {
   loading.value = true
 
   try {
-    const formData = new URLSearchParams()
-    formData.append('username', email.value)
+    const formData = new FormData()
+    formData.append('username', email.value.trim())     // backend uses "username" field
     formData.append('password', password.value)
+    formData.append('client_id', 'dashboard-app')        // required by your backend
 
-    const response = await fetch('http://localhost:8002/login', {
+    // THIS IS THE KEY: redirect_uri must point to your SEPARATE dashboard app's callback
+    formData.append('redirect_uri', 'http://localhost:3001/auth-callback')
+
+    // Recommended: add state for security (backend will return it unchanged)
+    const state = crypto.randomUUID()
+    formData.append('state', state)
+
+    const response = await fetch('http://localhost:8000/login', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: formData
+      body: formData,
+      credentials: 'include'  // Critical: allows httpOnly auth_session cookie to be set
     })
 
-    if (response.ok) {
-      const result = await response.json()
-      console.log('Login successful:', result)
-      
-      // Store tokens
-      localStorage.setItem('access_token', result.access_token)
-      localStorage.setItem('refresh_token', result.refresh_token)
-      
-      // Show success toast
-      toast.add({
-        title: 'Success',
-        description: 'Login successful! Redirecting...',
-        icon: 'i-heroicons-check-circle',
-        color: 'green',
-        timeout: 2000
-      })
-      
-      // Get redirect URL from query param or default
-      const redirectUri = route.query.redirect_uri || 'https://dashboard.yourdomain.com'
-      
-      // Small delay to show toast before redirect
-      setTimeout(() => {
-        window.location.href = redirectUri
-      }, 1500)
-      
-    } else {
-      const error = await response.json()
-      console.error('Login failed:', error)
-      
-      let errorMessage = 'Login failed!'
-      if (error.detail) {
-        errorMessage = Array.isArray(error.detail) 
-          ? error.detail.map(d => d.msg || d).join(', ')
-          : error.detail
-      }
-      
+    const data = await response.json()
+
+    if (!response.ok || !data.success) {
+      const errorMsg = data.message || data.error || 'Invalid email or password'
       toast.add({
         title: 'Login Failed',
-        description: errorMessage,
+        description: errorMsg,
         icon: 'i-heroicons-x-circle',
         color: 'red',
         timeout: 5000
       })
+      return
     }
-  } catch (error: any) {
-    console.error('Login error:', error)
-    
-    let errorMessage = 'Network error during login!'
-    if (error.message?.includes('Failed to fetch')) {
-      errorMessage = 'Cannot connect to server. Please try again.'
+
+    // Success! Backend returns redirect_uri with code
+    if (data.redirect_uri) {
+      toast.add({
+        title: 'Success',
+        description: 'Login successful! Redirecting to dashboard...',
+        icon: 'i-heroicons-check-circle',
+        color: 'green',
+        timeout: 2000
+      })
+
+      // Small delay so user sees the success toast
+      setTimeout(() => {
+        // This redirects the browser to your dashboard app with ?code=...&state=...
+        window.location.href = data.redirect_uri
+      }, 1500)
+    } else {
+      toast.add({
+        title: 'Error',
+        description: 'Login succeeded but no redirect URL received.',
+        color: 'red'
+      })
     }
-    
+
+  } catch (err) {
+    console.error('Login network error:', err)
     toast.add({
       title: 'Network Error',
-      description: errorMessage,
+      description: 'Cannot connect to server. Please check your connection.',
       icon: 'i-heroicons-exclamation-triangle',
       color: 'red',
       timeout: 5000
@@ -171,14 +164,7 @@ const login = async () => {
   }
 }
 
-// Optional: Press Enter to submit
-const onEnter = (e: KeyboardEvent) => {
-  if (e.key === 'Enter' && !loading.value) {
-    login()
-  }
-}
-
-// SEO Meta (using Nuxt 3's useSeoMeta)
+// SEO
 useSeoMeta({
   title: 'Login - Your App Name',
   description: 'Login to access your dashboard',

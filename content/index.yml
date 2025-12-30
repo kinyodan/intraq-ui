@@ -1,10 +1,13 @@
-seo:
-  title: Intraq — Reliable Data Solutions for Africa’s Leading Organizations
-  description: Intraq partners with enterprises, NGOs, and public institutions across Africa to deliver trusted data management solutions. From data entry and validation to analytics, our platform ensures accuracy, security, and actionable intelligence for every decision.
+# Refined content.yml for Intraq
+# Strategy: "Africa's Data & Cloud Cost Platform, Built for Global Scale"
 
-title: Reliable Data Solutions for Africa’s Leading Organizations
-description: Intraq partners with enterprises, NGOs, and public institutions across Africa to deliver trusted data management solutions. From data entry and validation to analytics, our platform ensures accuracy, security, and actionable intelligence for every decision.
-  
+seo:
+  title: "Intraq — Data & Cloud Cost Intelligence for Africa's Scaling Organizations"
+  description: "Intraq partners with leading African enterprises, NGOs, and global teams to deliver trusted data management and cloud financial operations (FinOps). From data validation to cloud cost optimization, we ensure accuracy, security, and cost-efficiency for every decision."
+
+title: "Data & Cloud Cost Intelligence for Africa's Scaling Organizations"
+description: "Intraq provides trusted data management and cloud financial operations (FinOps) solutions. Built with deep African expertise, our platform delivers accuracy, security, and actionable intelligence for businesses scaling locally and globally."
+
 hero:
   links:
     - label: Get started
@@ -13,183 +16,195 @@ hero:
       color: primary
       to: 'register'
       size: xl
+  # Optional addition: A small, proud tagline under the main title
+  tagline: "Built in Africa for the world's most dynamic markets"
 
 section:
-  title: '[Transform]{.text-orange-600} your data experience'
-  description: Empower your business with smart data entry, management, and insight-driven solutions — built for accuracy, speed, and scalability across Africa.
+  title: '[Transform]{.text-orange-600} your data and cloud financial operations'
+  description: 'Empower your business with smart data management and cloud cost intelligence — built for accuracy, scalability, and financial control across Africa and beyond.'
   images:
     mobile: '/images/dashboard.jpg'
     desktop: '/images/dashboard.jpg'
   features:
-    - title: Ensure data accuracy and consistency
-      description: Minimize errors and improve reliability with our expert-led data entry processes and validation systems — because clean data drives confident decisions.
+    - title: Ensure data accuracy and financial clarity
+      description: 'Minimize errors and optimize costs with expert-led data processes and cloud spend validation. Clean data and clear finances drive confident decisions.'
       class: border-l border-primary pl-4
 
-    - title: Streamline information management
-      description: Centralize, organize, and manage your data through modern software solutions that simplify access, updates, and reporting for teams of all sizes.
+    - title: Streamline operations and control cloud spend
+      description: 'Centralize data and unify cloud financial management through modern solutions that simplify access, reporting, and cost accountability for teams.'
       class: border-l border-default pt-4 pl-4
 
-    - title: Unlock insights that fuel growth
-      description: Turn raw information into actionable insights with Intraq’s data visualization and analysis tools, helping you make faster, smarter business decisions.
+    - title: Unlock insights that fuel growth and savings
+      description: 'Turn raw information into actionable intelligence with Intraq’s analytics and FinOps tools, helping you make smarter decisions that impact both performance and budget.'
       class: border-l border-default pt-4 pl-4
 
 features:
-  title: Take control of your [data operations]{.text-primary}
-  description: Enhance accuracy, efficiency, and collaboration with intelligent tools designed to simplify every step of your data management process.
+  title: 'Take control of your [data and cloud finances]{.text-primary}'
+  description: 'Enhance accuracy, efficiency, and financial oversight with intelligent tools designed to simplify every step from data entry to cloud cost optimization.'
   features:
-    - title: Smart Data Validation
-      description: Automatically detect and correct inconsistencies to keep your records clean, accurate, and reliable.
+    # Existing data features enhanced with FinOps context
+    - title: Smart Data & Cost Validation
+      description: 'Automatically detect data inconsistencies and cloud cost anomalies to keep your records clean and your spending predictable.'
       icon: i-lucide-check-circle
       ui:
         leading: bg-accented/50 p-2 rounded-md border border-muted border-dashed
 
-    - title: Workflow Monitoring
-      description: Track your team’s data entry progress and performance in real time to ensure efficiency and accountability.
+    - title: Workflow & Cost Monitoring
+      description: 'Track data entry progress and cloud expenditure in real time to ensure operational efficiency and budget accountability.'
       icon: i-lucide-activity
       ui:
         leading: bg-accented/50 p-2 rounded-md border border-muted border-dashed
 
-    - title: Centralized Record Management
-      description: Store and access all your information in one secure system — making updates, retrieval, and analysis effortless.
+    - title: Centralized Data & Cost Hub
+      description: 'Store all information and unify cloud costs from multiple providers in one secure system for effortless management and analysis.'
       icon: i-lucide-database
       ui:
         leading: bg-accented/50 p-2 rounded-md border border-muted border-dashed
 
-    - title: Accuracy Alerts
-      description: Get notified about anomalies or duplicated entries, keeping your business data trustworthy and consistent.
+    - title: Accuracy & Budget Alerts
+      description: 'Get notified about data anomalies or unexpected cloud spending spikes, keeping your operations trustworthy and financially sound.'
       icon: i-lucide-bell-ring
       ui:
         leading: bg-accented/50 p-2 rounded-md border border-muted border-dashed
 
+    # NEW: Explicit FinOps feature
+    - title: Cloud Cost Intelligence (FinOps)
+      description: 'Gain visibility and control over AWS, Azure, and GCP spending. Allocate costs, identify savings, and forecast budgets with precision.'
+      icon: i-lucide-pie-chart
+      ui:
+        leading: bg-accented/50 p-2 rounded-md border border-muted border-dashed
+
     - title: Collaborative Dashboards
-      description: Empower teams to work together seamlessly with shared insights, permissions, and audit tracking.
+      description: 'Empower finance, DevOps, and business teams to work together with shared insights, permissions, and cost accountability.'
       icon: i-lucide-users
       ui:
         leading: bg-accented/50 p-2 rounded-md border border-muted border-dashed
 
     - title: Insightful Reporting
-      description: Generate visual reports and analytics that help you understand trends, performance, and opportunities at a glance.
+      description: 'Generate visual reports on data trends and cloud cost performance to understand opportunities for growth and savings at a glance.'
       icon: i-lucide-bar-chart-3
       ui:
         leading: bg-accented/50 p-2 rounded-md border border-muted border-dashed
 
 steps:
-  title: Streamline your data operations in [3 steps]{.text-primary}
-  description: Simplify your data entry, management, and reporting with Intraq’s smart data solutions.
+  title: 'Streamline your data and cloud operations in [3 steps]{.text-primary}'
+  description: 'Simplify data management and cloud financial control with Intraq’s integrated platform.'
   items:
-    - title: Connect Your Data Sources
-      description: Easily integrate spreadsheets, CRMs, or databases with Intraq. Import your existing data in minutes — no complex setup required.
+    - title: Connect Your Data & Cloud Sources
+      description: 'Easily integrate spreadsheets, CRMs, and cloud providers (AWS, Azure, GCP) with Intraq. Import data and connect billing in minutes.'
       image:
         light: '/images/light/connect.svg'
         dark: '/images/dark/connect.svg'
 
-    - title: Clean & Organize
-      description: Automatically detect duplicates, fix formatting errors, and standardize entries. Keep your datasets accurate, consistent, and ready for use.
+    - title: Clean, Organize & Analyze Costs
+      description: 'Detect duplicates, fix errors, and gain visibility into cloud spend. Identify waste and standardize processes for accuracy and savings.'
       image:
         light: '/images/light/optimize.svg'
         dark: '/images/dark/optimize.svg'
 
-    - title: Manage & Visualize
-      description: Generate instant reports and dashboards that reveal trends, accuracy rates, and productivity insights — all in one intuitive platform.
+    - title: Optimize, Visualize & Scale
+      description: 'Generate reports and dashboards that reveal data trends and cost optimization opportunities. Make decisions that drive growth efficiently.'
       image:
         light: '/images/light/track.svg'
         dark: '/images/dark/track.svg'
 
 pricing:
   title: Choose a plan for your needs
-  description: Intraq offers flexible data entry and management plans designed for teams, NGOs, and enterprises across Africa.
-
+  description: 'Intraq offers flexible solutions for data management and cloud cost optimization, designed for teams and enterprises across Africa with global scalability.'
   plans:
     - name: Starter
       price: "KES 15,000 / project"
-      description: Best for small one-off data entry or cleanup tasks.
+      description: 'Perfect for one-off data projects or initial cloud cost assessments.'
       features:
         - Up to 5,000 records processed
-        - Basic formatting and validation
+        - Basic data formatting and validation
+        - Cloud bill visualization for 1 provider
         - 2-day turnaround
         - Email support
       cta: Get Started
 
     - name: Professional
       price: "KES 40,000 / month"
-      description: Ideal for SMEs needing ongoing data management.
+      description: 'Ideal for growing businesses needing ongoing data and cloud cost management.'
       features:
         - Up to 20,000 records/month
-        - Data validation and error correction
-        - Basic reporting dashboard
+        - Advanced data validation & error correction
+        - Multi-cloud cost dashboard & basic alerts
+        - Monthly optimization recommendations
         - Priority email & WhatsApp support
       highlight: true
       cta: Subscribe
 
     - name: Enterprise
       price: "Custom Quote"
-      description: For organizations needing advanced automation and analytics.
+      description: 'For organizations requiring advanced automation, analytics, and global FinOps.'
       features:
         - Unlimited record processing
-        - Custom dashboards and API integrations
-        - Dedicated account manager
-        - SLA-backed turnaround times
+        - Custom FinOps dashboards & API integrations
+        - Dedicated account manager & FinOps specialist
+        - SLA-backed turnaround & cost-savings targets
+        - Multi-currency support & global compliance
         - Optional on-site training
       cta: Contact Sales
 
 model:
   title: How Intraq Delivers Value
-  description: We combine software automation with expert human support to provide accurate, scalable, and cost-effective data management for organizations across Africa.
+  description: 'We combine software automation with expert human support to provide accurate, scalable, and cost-effective data and cloud financial management.'
   model:
     - title: Subscription Plans
-      description: Ideal for businesses with recurring data entry or reporting needs. Clients pay a fixed monthly or quarterly fee depending on record volume and complexity.
+      description: 'Fixed monthly/quarterly fees for recurring data and cloud cost management needs, scaled by volume and complexity.'
       icon: i-lucide-calendar
 
     - title: Project-Based Pricing
-      description: For one-time cleanup, digitization, or migration projects. Pricing depends on the number of records, turnaround time, and required accuracy levels.
+      description: 'For one-time data cleanup, migration, or deep-dive cloud cost optimization projects.'
       icon: i-lucide-briefcase
 
-    - title: Managed Service Retainers
-      description: Larger organizations can retain Intraq as a dedicated data operations partner — with assigned specialists, SLAs, and ongoing system improvements.
+    - title: Managed FinOps Retainers
+      description: 'Act as your dedicated Cloud Business Office. We provide specialists, SLAs, and ongoing optimization to maximize your cloud ROI.'
       icon: i-lucide-handshake
 
-    - title: Software Licensing
-      description: Access Intraq’s proprietary data validation and reporting tools for internal use or integration into your systems.
+    - title: Platform Licensing
+      description: 'License Intraq’s data validation and cloud cost intelligence platform for internal use or integration into your systems.'
       icon: i-lucide-cpu
 
     - title: Consulting & Training
-      description: We help your internal teams improve data accuracy, structure processes, and adopt the best tools for long-term efficiency.
+      description: 'Help your teams improve data processes, implement FinOps practices, and adopt tools for long-term efficiency and control.'
       icon: i-lucide-graduation-cap
 
 testimonials:
-  title: Trusted by [businesses and organizations]{.text-primary} across Africa
-  description: See how Intraq is helping companies and NGOs simplify data workflows, improve accuracy, and unlock insights from their information.
+  title: 'Trusted by [scaling organizations]{.text-primary} across Africa'
+  description: 'See how Intraq helps companies and NGOs simplify data workflows, optimize cloud spend, and unlock actionable intelligence.'
   items:
-    - quote: “Intraq helped us clean and organize thousands of client records. Our reporting process is now faster and more accurate — saving us days each month.”
+    - quote: '“Intraq helped us clean thousands of records and identified 25% waste in our cloud spend. Our reporting is faster, and our infrastructure costs are now predictable.”'
       user:
-        name: "Grace Njeri"
-        description: "Operations Lead, Nairobi SME Hub"
+        name: 'Grace Njeri'
+        description: 'Operations Lead, Nairobi SME Hub'
         avatar:
-          src: "https://ipx.nuxt.com/f_auto,s_192x192/gh_avatar/gracenz"
+          src: 'https://ipx.nuxt.com/f_auto,s_192x192/gh_avatar/gracenz'
 
-    - quote: “We rely on Intraq to manage our program data across multiple regions. Their team combines great tech with human accuracy.”
+    - quote: '“Managing program data across regions is complex. Intraq provided clarity not just on our data, but on our AWS costs, freeing up budget for more community work.”'
       user:
-        name: "Michael Ade"
-        description: "Program Officer, NGO West Africa"
+        name: 'Michael Ade'
+        description: 'Program Officer, NGO West Africa'
         avatar:
-          src: "https://ipx.nuxt.com/f_auto,s_192x192/gh_avatar/michaelade"
+          src: 'https://ipx.nuxt.com/f_auto,s_192x192/gh_avatar/michaelade'
 
-    - quote: “Our internal data quality improved drastically. The dashboards Intraq built help us make decisions in minutes, not hours.”
+    - quote: '“The dashboards Intraq built give our finance and tech teams a shared view of costs per product feature. It’s transformed our planning and saved us thousands monthly.”'
       user:
-        name: "Esther Muthoni"
-        description: "Data Manager, Fintech Kenya"
+        name: 'Esther Muthoni'
+        description: 'Data Manager, Fintech Kenya'
         avatar:
-          src: "https://ipx.nuxt.com/f_auto,s_192x192/gh_avatar/esthermuthoni"
+          src: 'https://ipx.nuxt.com/f_auto,s_192x192/gh_avatar/esthermuthoni'
 
 cta:
-  title: Ready to take control of your business data?
-  description: Let Intraq simplify your data operations — from entry to insight. Partner with our specialists and transform how your organization manages information.
+  title: 'Ready to optimize your data and cloud investment?'
+  description: 'Let Intraq simplify your operations and finances — from data entry to cloud cost intelligence. Partner with our specialists to transform how you manage information and expenditure.'
   links:
     - label: Start your project
       to: '#contact'
       trailingIcon: i-lucide-arrow-right
       color: primary
-    - label: Contact sales
+    - label: Discuss a global pilot
       to: '#contact'
       variant: subtle
-      icon: i-lucide-phone
+      icon: i-lucide-globe
