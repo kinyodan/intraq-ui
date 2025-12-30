@@ -99,7 +99,7 @@ const login = async () => {
     formData.append('username', email.value)
     formData.append('password', password.value)
 
-    const response = await fetch('http://localhost:8000/login', {
+    const response = await fetch('http://localhost:8002/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
