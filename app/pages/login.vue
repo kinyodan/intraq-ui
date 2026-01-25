@@ -78,7 +78,7 @@ const toast = useToast()
 const email = ref('')
 const password = ref('')
 const loading = ref(false)
-
+const apiUrl = "http://localhost:8000" //"https://intraq-backend.onrender.com"
 // Login function - fully compatible with your unchanged backend /login endpoint
 const login = async () => {
   if (!email.value.trim() || !password.value) {
@@ -107,7 +107,7 @@ const login = async () => {
     const state = crypto.randomUUID()
     formData.append('state', state)
 
-    const response = await fetch('http://localhost:8000/login', {
+    const response = await fetch(`${apiUrl}/login`, {
       method: 'POST',
       body: formData,
       credentials: 'include'  // Critical: allows httpOnly auth_session cookie to be set

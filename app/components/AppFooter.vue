@@ -89,12 +89,12 @@ function onSubmit() {
 
     <template #left>
       <p class="text-sm text-muted">
-        Built with Nuxt UI • © {{ new Date().getFullYear() }}
+        Intraq Data Solutions • © {{ new Date().getFullYear() }}
       </p>
     </template>
 
     <template #right>
-      <UButton
+    <!--   <UButton
         to="https://go.nuxt.com/discord"
         target="_blank"
         icon="i-simple-icons-discord"
@@ -117,7 +117,7 @@ function onSubmit() {
         aria-label="Nuxt UI on GitHub"
         color="neutral"
         variant="ghost"
-      />
+      /> -->
     </template>
   </UFooter>
 </template>

@@ -49,6 +49,19 @@ export default defineNuxtConfig({
     port: 3000,
     allowedHosts: ['a17aacae164b.ngrok-free.app']
   },
+  
+  runtimeConfig: {
+    // Private keys (server-side only)
+    apiSecret: process.env.API_SECRET,
+    
+    // Public keys (exposed to client)
+    public: {
+      apiBase: process.env.API_BASE_URL || 'http://localhost:8000',
+      landingUrl: process.env.LANDING_URL || 'https://intraq.simokai.com',
+      dashboardUrl: process.env.DASHBOARD_URL || 'http://localhost:3002/dashboard',
+      nodeEnv: process.env.NODE_ENV || 'development'
+    }
+  },
 
   eslint: {
     config: {

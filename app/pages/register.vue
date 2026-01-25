@@ -96,7 +96,8 @@ export default {
       name: '',
       email: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      apiUrl: "http://localhost:8000" //"https://intraq-backend.onrender.com"
     }
   },
   
@@ -147,7 +148,7 @@ export default {
           formData.append('email', this.email)
           formData.append('password', this.password)
 
-          const response = await fetch('http://localhost:8000/signup', {
+          const response = await fetch(`${this.apiUrl}/signup`, {
             method: 'POST',
             body: formData
           })
