@@ -78,7 +78,7 @@ const toast = useToast()
 const email = ref('')
 const password = ref('')
 const loading = ref(false)
-const apiUrl = "http://localhost:8000" //"https://intraq-backend.onrender.com"
+const apiUrl = "https://intraq-backend.onrender.com"
 // Login function - fully compatible with your unchanged backend /login endpoint
 const login = async () => {
   if (!email.value.trim() || !password.value) {
@@ -101,7 +101,7 @@ const login = async () => {
     formData.append('client_id', 'dashboard-app')        // required by your backend
 
     // THIS IS THE KEY: redirect_uri must point to your SEPARATE dashboard app's callback
-    formData.append('redirect_uri', 'http://localhost:3001/auth-callback')
+    formData.append('redirect_uri', 'https://dashboard.intraq.simokai.com/dashboard/auth-callback')
 
     // Recommended: add state for security (backend will return it unchanged)
     const state = crypto.randomUUID()

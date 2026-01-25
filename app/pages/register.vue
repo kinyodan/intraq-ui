@@ -97,7 +97,7 @@ export default {
       email: '',
       password: '',
       confirmPassword: '',
-      apiUrl: "http://localhost:8000" //"https://intraq-backend.onrender.com"
+      apiUrl: "https://intraq-backend.onrender.com"
     }
   },
   
