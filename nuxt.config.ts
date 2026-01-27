@@ -56,10 +56,9 @@ export default defineNuxtConfig({
     
     // Public keys (exposed to client)
     public: {
-      apiBase: process.env.API_BASE_URL || 'http://localhost:8000',
-      landingUrl: process.env.LANDING_URL || 'https://intraq.simokai.com',
-      dashboardUrl: process.env.DASHBOARD_URL || 'http://localhost:3002/dashboard',
-      nodeEnv: process.env.NODE_ENV || 'development'
+      apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || 'http://localhost:8000',
+      landingUrl: process.env.NUXT_PUBLIC_LANDING_URL || 'https://intraq.simokai.com',
+      dashboardUrl: process.env.NUXT_PUBLIC_DASHBOARD_URL || 'http://localhost:3001/dashboard',
     }
   },
 

@@ -73,12 +73,15 @@
 import { ref } from 'vue'
 
 const toast = useToast()
+const config = useRuntimeConfig()
 
 // Reactive state
 const email = ref('')
 const password = ref('')
 const loading = ref(false)
-const apiUrl = "https://intraq-backend.onrender.com"
+const apiUrl = config.public.apiBaseUrl
+const redirectUri = `${config.public.dashboardUrl}/auth-callback`
+
 // Login function - fully compatible with your unchanged backend /login endpoint
 const login = async () => {
   if (!email.value.trim() || !password.value) {
@@ -101,7 +104,7 @@ const login = async () => {
     formData.append('client_id', 'dashboard-app')        // required by your backend
 
     // THIS IS THE KEY: redirect_uri must point to your SEPARATE dashboard app's callback
-    formData.append('redirect_uri', 'https://dashboard.intraq.simokai.com/dashboard/auth-callback')
+    formData.append('redirect_uri', redirectUri)
 
     // Recommended: add state for security (backend will return it unchanged)
     const state = crypto.randomUUID()

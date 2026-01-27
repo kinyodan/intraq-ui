@@ -77,6 +77,7 @@
 </template>
 <script>
 import apiService from "@/services/apiService"
+const config = useRuntimeConfig()
 
 export default {
   async asyncData({ $content, error }) {
@@ -97,7 +98,7 @@ export default {
       email: '',
       password: '',
       confirmPassword: '',
-      apiUrl: "https://intraq-backend.onrender.com"
+      apiUrl:  config.public.apiBaseUrl
     }
   },
   
