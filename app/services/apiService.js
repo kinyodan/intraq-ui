@@ -1,7 +1,7 @@
 import {apiGetClient, apiPostClient} from './axios-config'
 
-let api_url = "http://127.0.0.1:8000"  
-// let api_url = "http://localhost:4000" 
+//let api_url = "http://127.0.0.1:8000"  
+let api_url = "https://intraq-backend.onrender.com"
 
 console.log(process.env.APIURL)
     console.log("cacheApiUrl-cacheApiUrl")

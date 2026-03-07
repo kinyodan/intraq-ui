@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   site: {
-    url: 'https://intraq.simokai.com',
+    url: 'https://intraq-ui.vercel.app',
     name: 'Intraq',
     description: 'Reliable Data Solutions for Africa\'s Leading Organizations'
   },
@@ -56,9 +56,12 @@ export default defineNuxtConfig({
     
     // Public keys (exposed to client)
     public: {
-      apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || 'http://localhost:8000',
-      landingUrl: process.env.NUXT_PUBLIC_LANDING_URL || 'https://intraq.simokai.com',
-      dashboardUrl: process.env.NUXT_PUBLIC_DASHBOARD_URL || 'http://localhost:3001/dashboard',
+      // apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || 'http://localhost:8000',
+      // landingUrl: process.env.NUXT_PUBLIC_LANDING_URL || 'https://intraq.simokai.com',
+      // dashboardUrl: process.env.NUXT_PUBLIC_DASHBOARD_URL || 'http://localhost:3001/dashboard',
+      apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || 'https://intraq-backend.onrender.com',
+      landingUrl: process.env.NUXT_PUBLIC_LANDING_URL || 'https://intraq-ui.vercel.app',
+      dashboardUrl: process.env.NUXT_PUBLIC_DASHBOARD_URL || 'https://dashboard.intraq.simokai.com/dashboard',
     }
   },
 
