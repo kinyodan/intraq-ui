@@ -53,9 +53,9 @@
             <UButton block color="primary" class="h-11 text-base font-medium" @click="signup">
               Sign Up
             </UButton>
-            <UButton block variant="outline" class="h-11 text-base font-medium">
+            <!--<UButton block variant="outline" class="h-11 text-base font-medium">
               Continue with Google
-            </UButton>
+            </UButton>-->
           </div>
 
           <p class="text-sm text-muted text-center pt-2">
