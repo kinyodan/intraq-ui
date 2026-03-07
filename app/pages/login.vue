@@ -46,9 +46,9 @@
               Login
             </UButton>
 
-            <UButton block variant="outline" class="h-11 text-base font-medium">
+            <!--<UButton block variant="outline" class="h-11 text-base font-medium">
               Login with Google
-            </UButton>
+            </UButton>-->
           </div>
 
           <p class="text-sm text-muted text-center pt-2">
