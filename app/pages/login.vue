@@ -11,7 +11,6 @@
             <h2 class="text-3xl font-semibold">Login to your account</h2>
             <p class="text-sm text-muted">Enter your email to continue</p>
           </div>
-
           <UFormGroup label="Email" name="email">
             <UInput
               v-model="email"
@@ -22,7 +21,6 @@
               @keyup.enter="login"
             />
           </UFormGroup>
-
           <UFormGroup label="Password" name="password">
             <UInput
               v-model="password"
@@ -33,7 +31,6 @@
               @keyup.enter="login"
             />
           </UFormGroup>
-
           <div class="space-y-3 pt-2">
             <UButton
               block
@@ -45,12 +42,7 @@
             >
               Login
             </UButton>
-
-            <!--<UButton block variant="outline" class="h-11 text-base font-medium">
-              Login with Google
-            </UButton>-->
           </div>
-
           <p class="text-sm text-muted text-center pt-2">
             Don’t have an account?
             <NuxtLink to="/register" class="underline text-primary">
@@ -58,7 +50,6 @@
             </NuxtLink>
           </p>
         </div>
-
         <!-- Right: Image -->
         <div
           class="hidden md:block md:w-3/5 bg-cover rounded-2xl bg-center"
@@ -70,19 +61,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-
 const toast = useToast()
 const config = useRuntimeConfig()
 
-// Reactive state
 const email = ref('')
 const password = ref('')
 const loading = ref(false)
-const apiUrl = config.public.apiBaseUrl
-const redirectUri = `${config.public.dashboardUrl}/auth-callback`
 
-// Login function - fully compatible with your unchanged backend /login endpoint
+// ✅ Use public proxy URLs (set these in Vercel Env Vars for the LANDING app)
+const landingUrl = config.public.landingUrl || 'https://intro.pro'
+const dashboardUrl = config.public.dashboardUrl || 'https://intro.pro/dashboard'  // Important: full public path
+
+const apiUrl = config.public.apiBaseUrl
+
 const login = async () => {
   if (!email.value.trim() || !password.value) {
     toast.add({
@@ -99,21 +90,21 @@ const login = async () => {
 
   try {
     const formData = new FormData()
-    formData.append('username', email.value.trim())     // backend uses "username" field
+    formData.append('username', email.value.trim())
     formData.append('password', password.value)
-    formData.append('client_id', 'dashboard-app')        // required by your backend
+    formData.append('client_id', 'dashboard-app')
 
-    // THIS IS THE KEY: redirect_uri must point to your SEPARATE dashboard app's callback
+    // ✅ CRITICAL FIX: redirect_uri must be the PUBLIC proxy URL
+    const redirectUri = `${dashboardUrl}/auth-callback`
     formData.append('redirect_uri', redirectUri)
 
-    // Recommended: add state for security (backend will return it unchanged)
     const state = crypto.randomUUID()
     formData.append('state', state)
 
     const response = await fetch(`${apiUrl}/login`, {
       method: 'POST',
       body: formData,
-      credentials: 'include'  // Critical: allows httpOnly auth_session cookie to be set
+      credentials: 'include'
     })
 
     const data = await response.json()
@@ -130,34 +121,30 @@ const login = async () => {
       return
     }
 
-    // Success! Backend returns redirect_uri with code
     if (data.redirect_uri) {
       toast.add({
         title: 'Success',
-        description: 'Login successful! Redirecting to dashboard...',
+        description: 'Login successful! Redirecting...',
         icon: 'i-heroicons-check-circle',
         color: 'green',
         timeout: 2000
       })
 
-      // Small delay so user sees the success toast
       setTimeout(() => {
-        // This redirects the browser to your dashboard app with ?code=...&state=...
         window.location.href = data.redirect_uri
       }, 1500)
     } else {
       toast.add({
         title: 'Error',
-        description: 'Login succeeded but no redirect URL received.',
+        description: 'No redirect URL received from server',
         color: 'red'
       })
     }
-
   } catch (err) {
-    console.error('Login network error:', err)
+    console.error('Login error:', err)
     toast.add({
       title: 'Network Error',
-      description: 'Cannot connect to server. Please check your connection.',
+      description: 'Cannot connect to server',
       icon: 'i-heroicons-exclamation-triangle',
       color: 'red',
       timeout: 5000
@@ -166,12 +153,4 @@ const login = async () => {
     loading.value = false
   }
 }
-
-// SEO
-useSeoMeta({
-  title: 'Login - Your App Name',
-  description: 'Login to access your dashboard',
-  ogTitle: 'Login - Your App Name',
-  ogDescription: 'Login to access your dashboard'
-})
 </script>
