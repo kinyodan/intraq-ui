@@ -60,8 +60,8 @@ export default defineNuxtConfig({
       // landingUrl: process.env.NUXT_PUBLIC_LANDING_URL || 'https://intraq.simokai.com',
       // dashboardUrl: process.env.NUXT_PUBLIC_DASHBOARD_URL || 'http://localhost:3001/dashboard',
       apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || 'https://intraq-backend.onrender.com',
-      landingUrl: process.env.NUXT_PUBLIC_LANDING_URL || 'https://intraq-ui.vercel.app',
-      dashboardUrl: process.env.NUXT_PUBLIC_DASHBOARD_URL || 'https://intraq-dashboard.vercel.app/dashboard',
+      landingUrl: process.env.NUXT_PUBLIC_LANDING_URL || 'https://www.intraq.pro',
+      dashboardUrl: process.env.NUXT_PUBLIC_DASHBOARD_URL || 'https://www.intraq.pro/dashboard',
     }
   },
 

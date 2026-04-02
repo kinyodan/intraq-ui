@@ -1,34 +1,22 @@
 {
-  "installCommand": "pnpm install --no-frozen-lockfile", 
+  "installCommand": "pnpm install --no-frozen-lockfile",
   "buildCommand": "pnpm run build",
   "rewrites": [
     {
       "source": "/dashboard",
-      "destination": "https://intraq-dashboard.vercel.app"
+      "destination": "https://intraq-dashboard.vercel.app/"
     },
     {
       "source": "/dashboard/:path*",
       "destination": "https://intraq-dashboard.vercel.app/:path*"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/dashboard/_nuxt/:path*",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/javascript"
-        }
-      ]
     },
     {
-      "source": "/dashboard/assets/:path*",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/css"
-        }
-      ]
+      "source": "/",
+      "destination": "https://your-landing-app.vercel.app/"
+    },
+    {
+      "source": "/:path*",
+      "destination": "https://intraq-ui.vercel.app/:path*"
     }
   ]
 }
