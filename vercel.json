@@ -1,9 +1,3 @@
 {
   "name": "Landing-app",
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/index.html"
-    }
-  ]
 }
