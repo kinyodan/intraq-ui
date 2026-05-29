@@ -80,7 +80,7 @@ const email = ref('')
 const password = ref('')
 const loading = ref(false)
 const apiUrl = config.public.apiBaseUrl
-const redirectUri = 'https://dashboard.intraq.pro/dashboard/auth-callback' //`${config.public.dashboardUrl}/auth-callback` || 'https://dashboard.intraq.pro/dashboard'
+const redirectUri = `${config.public.dashboardUrl}/auth-callback` // 'https://dashboard.intraq.pro/dashboard/auth-callback' //`${config.public.dashboardUrl}/auth-callback` || 'https://dashboard.intraq.pro/dashboard'
 
 // Login function - fully compatible with your unchanged backend /login endpoint
 const login = async () => {

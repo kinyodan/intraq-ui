@@ -2,7 +2,13 @@
 const nuxtApp = useNuxtApp()
 const { activeHeadings, updateHeadings } = useScrollspy()
 
-const items = computed(() => [{
+const items = computed(() => [
+{
+  label: 'Home',
+  to: '/',
+  active: activeHeadings.value.includes('login')
+},
+{
   label: 'Features',
   to: '/#features',
   active: activeHeadings.value.includes('features') && !activeHeadings.value.includes('pricing')
@@ -14,7 +20,12 @@ const items = computed(() => [{
   label: 'Testimonials',
   to: '/#testimonials',
   active: activeHeadings.value.includes('testimonials') && !activeHeadings.value.includes('pricing')
-}])
+}, {
+  label: 'Login',
+  to: '/login',
+  active: activeHeadings.value.includes('login')
+},
+])
 
 nuxtApp.hooks.hookOnce('page:finish', () => {
   updateHeadings([
@@ -31,7 +42,6 @@ nuxtApp.hooks.hookOnce('page:finish', () => {
       <NuxtLink to="/">
         <AppLogo class="w-auto shrink-0" />
       </NuxtLink>
-
     </template>
 
     <template #right>
@@ -41,9 +51,7 @@ nuxtApp.hooks.hookOnce('page:finish', () => {
         class="hidden lg:block"
       />
 
-
-
-      <UColorModeButton />
+      <!-- <UColorModeButton /> -->
     </template>
 
     <template #body>
